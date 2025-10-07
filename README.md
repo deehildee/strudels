@@ -1,2 +1,2 @@
 # strudels
-tunes made with strudel
+an archive of tunes made with strudel
