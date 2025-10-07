@@ -1,0 +1,21 @@
+setcpm(130/4)
+
+$: s("<[lt -] bd [lt ~ ] bd> *4") . bank("rolandtr606").room (0.6).rsize(1).gain(1.1)  
+$: s("<[~ [bd bd]] ~ [~ [bd -]] ~>*4").bank("rolandtr606").dec(.3) 
+.delay(.1).delayfeedback(0.1).room(0.3).rsize(1)
+  //just like the way this looks
+.orbit(2)
+._spectrum({width:700,height:130})
+ 
+$: wchooseCycles(["lt",5], ["bd",2],["perc",6]).s().fast(8) 
+  .bank("rolandtr707") 
+  .bpf(sine.range(200,3000).slow(16)) 
+  .bpa("<.5 .25 1 .01>/4").bpenv(4) 
+  .delay(perlin.range(0.05,0.8)).delayfeedback(0.3) 
+  .room(0.3).rsize(1) 
+  .gain(0.5) .dist("2.5").postgain(0.5)
+.orbit(2)
+._spectrum({width:700,height:130})
+
+$: chord("<<Eb5 F> Bb Gm>").voicing().sound("<sawtooth>/64")
+  .phaser(4).attack("0.1").decay(3).clip(1.2).lpf(600).room(1).gain(0.25)  
